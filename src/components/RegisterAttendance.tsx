@@ -58,7 +58,7 @@ export default function RegisterAttendance() {
       })) as Student[];
       setStudents(allStudents);
     };
-    void fetchStudents(); // Mark the promise as ignored
+    void fetchStudents();<s></s>
   }, []);
 
   // Parse user input into an array of prefix-queries
