@@ -3,7 +3,7 @@
 import { db } from '@/server/db'; // Your database client
 
 // Fetch students or filter by name or ID
-export async function getStudents(search: string = "") {
+export async function getStudents(search = "") {
   const students = await db.student.findMany({
     where: {
       OR: [

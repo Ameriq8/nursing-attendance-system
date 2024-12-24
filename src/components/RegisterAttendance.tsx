@@ -58,7 +58,7 @@ export default function RegisterAttendance() {
       })) as Student[];
       setStudents(allStudents);
     };
-    fetchStudents();
+    void fetchStudents(); // Mark the promise as ignored
   }, []);
 
   // Parse user input into an array of prefix-queries
@@ -113,7 +113,7 @@ export default function RegisterAttendance() {
       '3': '13:00',
       '4': '15:00',
     };
-    setDoctorEnteringTime(times[value] || '08:00');
+    setDoctorEnteringTime(times[value] ?? '08:00');
   };
 
   // Toggle a student's attendance using the 'checked' value from Switch
@@ -258,7 +258,9 @@ ${absentStudents.join('\n')}
           )}
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="outline" onClick={copyToClipboard}>Copy to Clipboard</Button>
+          <Button variant="outline" onClick={copyToClipboard}>
+            Copy to Clipboard
+          </Button>
           {isCopied && <span className="text-green-500">Copied to clipboard!</span>}
           <Button
             onClick={async () => {
@@ -277,7 +279,7 @@ ${absentStudents.join('\n')}
                   description: `Attendance for lecture ${lectureNumber}`,
                 });
                 alert('Attendance has been successfully registered.');
-                copyToClipboard();
+                void copyToClipboard();
               } catch (error) {
                 console.error('Error registering attendance:', error);
                 alert('Failed to register attendance.');
