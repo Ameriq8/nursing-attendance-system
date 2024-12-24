@@ -12,7 +12,6 @@
     "db:studio": "prisma studio",
     "dev": "next dev --turbo",
     "postinstall": "prisma generate && prisma db seed",
-    "seed": "ts-node prisma/seed.ts",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
@@ -22,7 +21,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "node --loader ts-node/esm prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.1.0",
@@ -40,6 +39,7 @@
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
     "zod": "^3.23.3"
   },
   "devDependencies": {
