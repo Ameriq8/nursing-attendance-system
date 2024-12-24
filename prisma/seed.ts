@@ -1,5 +1,5 @@
-// prisma/seed.js
 import { PrismaClient } from '@prisma/client';
+
 const prisma = new PrismaClient();
 
 const predefinedStudents = [
@@ -80,7 +80,7 @@ async function main() {
 }
 
 main()
-  .catch((e) => {
+  .catch((e: unknown) => {
     console.error(e);
     process.exit(1);
   })
