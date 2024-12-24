@@ -11,13 +11,13 @@ datasource db {
 }
 
 model Student {
-    id         String       @id @default(cuid())
+    id         String       @id
     name       String
     attendance Attendance[]
 }
 
 model Attendance {
-    id                 String   @id @default(cuid())
+    id                 String   @id
     semester           String
     course             String
     lectureNumber      Int
