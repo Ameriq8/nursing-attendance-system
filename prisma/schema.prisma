@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Student {
+    id         String       @id @default(cuid())
+    name       String
+    attendance Attendance[]
+}
+
+model Attendance {
+    id                 String   @id @default(cuid())
+    semester           String
+    course             String
+    lectureNumber      Int
+    doctorEnteringTime String
+    student            Student  @relation(fields: [studentId], references: [id])
+    studentId          String
+    description        String?
+    isPresent          Boolean  @default(false)
+    createdAt          DateTime @default(now())
+}
