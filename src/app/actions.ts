@@ -53,6 +53,7 @@ export async function registerAttendance(data: {
 
       return db.attendance.create({
         data: {
+          id: `${student.id}-${semester}-${course}-${lectureNumber}`,
           student: { connect: { id: studentRecord.id } },
           course,
           semester,
