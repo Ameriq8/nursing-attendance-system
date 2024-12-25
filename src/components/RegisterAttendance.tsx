@@ -21,6 +21,7 @@ import {
 } from '@/components/ui/table';
 import { Switch } from '@/components/ui/switch';
 import { getStudents, registerAttendance } from '@/app/actions';
+import { log } from 'node:console';
 
 type Student = {
   id: string;
@@ -56,9 +57,10 @@ export default function RegisterAttendance() {
         ...student,
         isPresent: false,
       })) as Student[];
+      console.log('Fetched students:', allStudents);
       setStudents(allStudents);
     };
-    void fetchStudents();<s></s>
+    void fetchStudents();
   }, []);
 
   // Parse user input into an array of prefix-queries
